@@ -42,7 +42,6 @@ body {
 .contactsContainer {
     width: 35%;
     height: 100%;
-    background-color: chocolate;
 }
 
 .messageContainer {
@@ -159,5 +158,55 @@ a {
     height: 100%;
 }
 
+.containerChats {
+    height: calc(100% - 200px);
+    
+    background-color: white;
+
+    overflow-y: scroll;
+}
+
+.chat {
+    border-top: 1px solid rgb(240, 240, 240);
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.imageChat {
+    border-radius: 100rem;
+    width: 60px;
+}
+
+.chatNameEFoto {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1rem;
+}
+
+.chatNameEFoto div {
+    align-self: start;
+    padding-top: 10px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.timeMessage {
+    align-self: start;
+    padding-top: 10px;
+    padding-right: 10px;
+
+    color: rgb(160, 160, 160);
+    font-size: 0.7rem;
+}
+
+.greyText {
+    font-size: 0.8rem;
+    color: rgb(160, 160, 160);
+}
 
 

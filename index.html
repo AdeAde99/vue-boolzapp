@@ -18,7 +18,7 @@
     <div class="background-su"></div>
     <div class="background-giù"></div>
 
-    <main class="app">
+    <main class="app" id="app">
         <section class="contactsContainer">
             <div class="profileContainer" style="border-right: 1px solid rgb(212, 212, 212);">
                 <div class="containerImgEName">
@@ -49,16 +49,21 @@
                 </div>
             </div>
             <div class="containerChats">
-                <div class="chat active">
+
+
+                <div v-for="(chat, index) in arrChats" class="chat" @click="changeSelected(index)" :class="{active: activeIndex == index}">
                     <div class="chatNameEFoto">
-                        <img src="img/avatar_1.jpg" alt="" class="imageChat">
+                        <img :src="chat.user.image" alt="" class="imageChat">
                         <div>
-                            <p>Michele</p>
-                            <p class="greyText">Ultimo messaggio inviato</p>
+                            <p>{{chat.user.name}}</p>
+                            <p class="greyText"></p>
                         </div>
                     </div>
                     <div class="timeMessage">12.00</div>
                 </div>
+
+
+
                 <div class="chat">
                     <div class="chatNameEFoto">
                         <img src="img/avatar_2.jpg" alt="" class="imageChat">
@@ -147,17 +152,9 @@
                 </div>
             </div>
             <div class="chatMessage">
-                <div class="message sent">
-                    <div class="text">Hai portato a spasso il cane?</div>
+                <div v-for="message in arrChats[activeIndex].arrMessages" class="message sent">
+                    <div class="text">{{message.text}}</div>
                     <div class="timeMessage" style="align-self: flex-end;">15.30</div>
-                </div>
-                <div class="message sent">
-                    <div class="text">Ricordati di stendere i panni</div>
-                    <div class="timeMessage" style="align-self: flex-end;">15.30</div>
-                </div>
-                <div class="message recieved">
-                    <div class="text">Tutto Fatto!</div>
-                    <div class="timeMessage" style="align-self: flex-end;"> 16.00</div>
                 </div>
             </div>
             <div class="profileContainer" style="background-color: #f3eeea; gap: 1rem">
@@ -176,7 +173,7 @@
         </section>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="javascript/script.js"></script>
 </body>
 </html>

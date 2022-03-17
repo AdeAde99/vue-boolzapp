@@ -139,9 +139,9 @@
         <section class="messageContainer">
             <div class="profileContainer">
                 <div class="containerImgEName" style="gap: 1rem;">
-                    <img src="img/avatar_1.jpg" alt="" class="imageIo image">
+                    <img :src="arrChats[activeIndex].user.image" alt="" class="imageIo image">
                     <div style="display: flex; flex-direction: column; gap: 0.2rem;">
-                        <p>Michele</p>
+                        <p>{{arrChats[activeIndex].user.name}}</p>
                         <p style="color: grey; font-size: 0.8rem">Ultimo accesso oggi alle 12.00</p>
                     </div>
                 </div>
@@ -152,7 +152,7 @@
                 </div>
             </div>
             <div class="chatMessage">
-                <div v-for="message in arrChats[activeIndex].arrMessages" class="message sent">
+                <div v-for="message in arrChats[activeIndex].arrMessages" class="message" :class="message.sent ? 'sent' : 'recieved'">
                     <div class="text">{{message.text}}</div>
                     <div class="timeMessage" style="align-self: flex-end;">15.30</div>
                 </div>
@@ -164,7 +164,7 @@
                     </div>
                 </div>
                 <div class="insideSearchContainer">
-                    <input type="text" placeholder="Scrivi un messaggio" class="inputSearch" style="border-radius: 5px;">
+                    <input @keyup.enter="addMessage()" type="text" placeholder="Scrivi un messaggio" class="inputSearch" style="border-radius: 5px;" v-model="arrChats[activeIndex].newMessage">
                 </div>
                 <div class="optionsProfile2">
                     <i class="fas fa-microphone"></i>

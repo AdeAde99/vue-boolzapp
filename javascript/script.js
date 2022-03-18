@@ -12,6 +12,7 @@ const app = new Vue ({
                     image: 'img/avatar_1.jpg',
                 },
                 newMessage: '',
+                lastMessage: '',
                 arrMessages: [
                     {
                         text:'Hai portato a spasso il cane?',
@@ -38,6 +39,7 @@ const app = new Vue ({
                     image: 'img/avatar_2.jpg',
                 },
                 newMessage: '',
+                lastMessage: '',
                 arrMessages: [
                     {
                         text:'Esci il cane',
@@ -64,6 +66,7 @@ const app = new Vue ({
                     image: 'img/avatar_3.jpg',
                 },
                 newMessage: '',
+                lastMessage: '',
                 arrMessages: [
                     {
                         text:'Ciao come stai?',
@@ -90,6 +93,7 @@ const app = new Vue ({
                     image: 'img/avatar_4.jpg',
                 },
                 newMessage: '',
+                lastMessage: '',
                 arrMessages: [
                     {
                         text:'Ciao',
@@ -116,6 +120,7 @@ const app = new Vue ({
                     image: 'img/avatar_5.jpg',
                 },
                 newMessage: '',
+                lastMessage: '',
                 arrMessages: [
                     {
                         text:'Ciao',
@@ -194,10 +199,24 @@ const app = new Vue ({
                 chat.user.trovato = false;
             });
         },
+
+        removeMessage(index) {
+
+            this.arrChats[this.activeIndex].arrMessages.splice(index, 1);
+        },
+
+        getLastMessage() {
+            
+
+        }
     },
 
     updated() {
-        this.search()
+        this.search();
+    },
+
+    mounted() {
+        this.getLastMessage();
     }
 
 });

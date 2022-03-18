@@ -56,7 +56,7 @@
                         <img :src="chat.user.image" alt="" class="imageChat">
                         <div>
                             <p>{{chat.user.name}}</p>
-                            <p class="greyText"></p>
+                            <p class="greyText">{{chat.lastMessage}}</p>
                         </div>
                     </div>
                     <div class="timeMessage">12.00</div>
@@ -80,9 +80,18 @@
                 </div>
             </div>
             <div class="chatMessage">
-                <div v-for="message in arrChats[activeIndex].arrMessages" class="message" :class="message.sent ? 'sent' : 'recieved'">
-                    <div class="text">{{message.text}}</div>
-                    <div class="timeMessage" style="align-self: flex-end;">15.30</div>
+                <div v-for="(message, index) in arrChats[activeIndex].arrMessages" class="message" :class="message.sent ? 'sent' : 'recieved'">
+                    <div class="textMessage">
+                        <p>{{message.text}}</p>
+                    </div>
+                    <div class="timeMessage" style="align-self: flex-end;">
+                        <p>15.30</p>
+                        <i class="fa-solid fa-angle-down"></i>
+                        <div class="hiddenBox">
+                            <div>Message info</div>
+                            <div @click="removeMessage(index)">Delete message</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="profileContainer" style="background-color: #f3eeea; gap: 1rem">

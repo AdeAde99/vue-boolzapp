@@ -195,6 +195,8 @@ a {
 }
 
 .timeMessage {
+    display: flex;
+    gap: 0.5rem;
     align-self: start;
     padding-top: 10px;
     padding-right: 10px;
@@ -250,6 +252,7 @@ a {
 }
 
 .message {
+    position: relative;
     border-radius: 10px;
     height: 50px;
     min-width: 20rem;
@@ -272,3 +275,35 @@ a {
 }
 
 
+.fa-angle-down {
+    align-self: center;
+    visibility: hidden;
+}
+
+.textMessage {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.message:hover .fa-angle-down {
+    visibility: visible;
+}
+
+.hiddenBox {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    top: 50px;
+    right: 5px;
+    position: absolute;
+    padding: 0.5rem;
+    width: 100px;
+    height: 50px;
+    background-color: white;
+    box-shadow: 1px 2px 1px 1px rgba(0, 0, 0, 0.075);
+    color: rgb(124, 124, 124);
+    font-size: 0.7rem;
+
+    z-index: 3;
+}

@@ -45,13 +45,13 @@
                     <div class="glassContainer">
                         <i class="fa-solid fa-magnifying-glass fa-magnifying-glass1"></i>
                     </div>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat" class="inputSearch">
+                    <input type="text" placeholder="Cerca o inizia una nuova chat" class="inputSearch" v-model="wordToSearch">
                 </div>
             </div>
             <div class="containerChats">
 
 
-                <div v-for="(chat, index) in arrChats" class="chat" @click="changeSelected(index)" :class="{active: activeIndex == index}">
+                <div v-for="(chat, index) in arrChats" class="chat" @click="changeSelected(index)" v-show="chat.user.visible">
                     <div class="chatNameEFoto">
                         <img :src="chat.user.image" alt="" class="imageChat">
                         <div>
@@ -62,78 +62,6 @@
                     <div class="timeMessage">12.00</div>
                 </div>
 
-
-
-                <div class="chat">
-                    <div class="chatNameEFoto">
-                        <img src="img/avatar_2.jpg" alt="" class="imageChat">
-                        <div>
-                            <p>Fabio</p>
-                            <p class="greyText">Ultimo messaggio inviato</p>
-                        </div>
-                    </div>
-                    <div class="timeMessage">12.00</div>
-                </div>
-                <div class="chat">
-                    <div class="chatNameEFoto">
-                        <img src="img/avatar_3.jpg" alt="" class="imageChat">
-                        <div>
-                            <p>Samuele</p>
-                            <p class="greyText">Ultimo messaggio inviato</p>
-                        </div>
-                    </div>
-                    <div class="timeMessage">12.00</div>
-                </div>
-                <div class="chat">
-                    <div class="chatNameEFoto">
-                        <img src="img/avatar_4.jpg" alt="" class="imageChat">
-                        <div>
-                            <p>Alessandro B.</p>
-                            <p class="greyText">Ultimo messaggio inviato</p>
-                        </div>
-                    </div>
-                    <div class="timeMessage">12.00</div>
-                </div>
-                <div class="chat">
-                    <div class="chatNameEFoto">
-                        <img src="img/avatar_5.jpg" alt="" class="imageChat">
-                        <div>
-                            <p>Alessandro L.</p>
-                            <p class="greyText">Ultimo messaggio inviato</p>
-                        </div>
-                    </div>
-                    <div class="timeMessage">12.00</div>
-                </div>
-                <div class="chat">
-                    <div class="chatNameEFoto">
-                        <img src="img/avatar_6.jpg" alt="" class="imageChat">
-                        <div>
-                            <p>Claudia</p>
-                            <p class="greyText">Ultimo messaggio inviato</p>
-                        </div>
-                    </div>
-                    <div class="timeMessage">12.00</div>
-                </div>
-                <div class="chat">
-                    <div class="chatNameEFoto">
-                        <img src="img/avatar_7.jpg" alt="" class="imageChat">
-                        <div>
-                            <p>Federico</p>
-                            <p class="greyText">Ultimo messaggio inviato</p>
-                        </div>
-                    </div>
-                    <div class="timeMessage">12.00</div>
-                </div>
-                <div class="chat">
-                    <div class="chatNameEFoto">
-                        <img src="img/avatar_8.jpg" alt="" class="imageChat">
-                        <div>
-                            <p>Davide</p>
-                            <p class="greyText">Ultimo messaggio inviato</p>
-                        </div>
-                    </div>
-                    <div class="timeMessage">12.00</div>
-                </div>
             </div>
         </section>
         <section class="messageContainer">

@@ -1,10 +1,13 @@
 const app = new Vue ({
     el: '#app',
     data: {
+        wordToSearch: '',
         activeIndex : 0,
         arrChats: [
             {
                 user: {
+                    trovato : false,
+                    visible: true,
                     name: 'Michele',
                     image: 'img/avatar_1.jpg',
                 },
@@ -29,6 +32,8 @@ const app = new Vue ({
             },
             {
                 user: {
+                    trovato : false,
+                    visible: true,
                     name: 'Fabio',
                     image: 'img/avatar_2.jpg',
                 },
@@ -53,6 +58,8 @@ const app = new Vue ({
             },
             {
                 user: {
+                    trovato : false,
+                    visible: true,
                     name: 'Samuele',
                     image: 'img/avatar_3.jpg',
                 },
@@ -77,6 +84,8 @@ const app = new Vue ({
             },
             {
                 user: {
+                    trovato : false,
+                    visible: true,
                     name: 'Alessandro B.',
                     image: 'img/avatar_4.jpg',
                 },
@@ -101,6 +110,8 @@ const app = new Vue ({
             },
             {
                 user: {
+                    trovato : false,
+                    visible: true,
                     name: 'Alessandro L.',
                     image: 'img/avatar_5.jpg',
                 },
@@ -156,6 +167,37 @@ const app = new Vue ({
             };
             activeChat.arrMessages.push(message);
         },
+
+        search() {
+            this.arrChats.forEach(chat => {
+                const parola = this.wordToSearch;
+
+                let arrName = Array.from(chat.user.name);
+                console.log(arrName);
+                for (i = 0; i < arrName.length; i++) {
+                    const tagliato = arrName.slice(i, i + parola.length);
+                    console.log(tagliato);
+
+                    const stringa = tagliato.join('');
+
+                    console.log(stringa);
+
+                    if (parola == stringa) {
+                        chat.user.trovato = true;
+                    }
+                };
+                if (chat.user.trovato == true) {
+                    chat.user.visible = true;
+                } else {
+                    chat.user.visible = false;
+                }
+                chat.user.trovato = false;
+            });
+        },
     },
+
+    updated() {
+        this.search()
+    }
 
 });
